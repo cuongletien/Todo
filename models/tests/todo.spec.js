@@ -19,4 +19,21 @@ describe('Test todo model', () => {
     expect(updated.completed).toBeFalsy();
     expect(errTodo).toBeFalsy();
   });
+
+  it('should delete todo with id', () => {
+    const result = deleteById(1);
+    const errDelete = deleteById(0);
+    expect.assertions(2);
+    expect(result).toBeTruthy();
+    expect(todos.length).toBe(0);
+  });
+
+  it('should delete todo with id', () => {
+    insert({ id: 1, title: 'First Todo' });
+    const errDelete = deleteById(0);
+    expect.assertions(2);
+    expect(errDelete).toBeFalsy();
+    expect(todos.length).toBe(1);
+  });
+  
 });

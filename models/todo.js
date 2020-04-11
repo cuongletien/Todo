@@ -33,10 +33,10 @@ exports.updateById = todo => {
 exports.deleteById = id => {
   let indexTodo = todos.findIndex( item => item.id === id);
   if (indexTodo !== -1) {
-    return false
+    todos.splice(indexTodo, 1);
+    return true;
   }
-  todos.splice(indexTodo, 1);
-  return true;
+  return false
 };
 
 /**
