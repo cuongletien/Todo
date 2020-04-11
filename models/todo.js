@@ -15,10 +15,10 @@ exports.insert = data => {
  * @param { todo: Todo }
  * @return { todo | false }
  */
-exports.updateByid = todo => {
-  let todoIndex = todos.findIndex(item => item.id === todo.id);
-  todos[todoIndex] = [...todos[todoIndex], ...todos];
-  if (todos[todoIndex] !== -1) {
+exports.updateById = todo => {
+  let todoIndex = todos.findIndex( item => item.id === todo.id );
+  todos[todoIndex] = {...todos[todoIndex], ...todo};
+  if (todoIndex !== -1) {
     return todos[todoIndex]
   } else {
     return false
